@@ -14,6 +14,7 @@ export const pageAnimation = {
   },
   exit: {
     opacity: 0,
+    y: 300,
     transition: {
       duration: 0.5,
     },
