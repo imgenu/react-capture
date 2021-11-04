@@ -6,10 +6,12 @@ import athlete from "../img/athlete-small.png";
 import theracer from "../img/theracer-small.png";
 import goodtimes from "../img/goodtimes-small.png";
 import { MovieState } from "../movieState";
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
 const OurWork = () => {
   const [movies, setMovies] = useState(MovieState);
   return (
-    <Work>
+    <Work variants={pageAnimation} initial="hidden" animate="show" exit="exit">
       {movies.map((movie) => (
         <Movie name={movie.title} img={movie.mainImg} url={movie.url} />
       ))}
@@ -29,7 +31,7 @@ const Movie = ({ name, img, url }) => {
   );
 };
 
-const Work = styled.div`
+const Work = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;
